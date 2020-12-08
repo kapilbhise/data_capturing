@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script src="http://cdn.pubnub.com/pubnub-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <h1>
+        Hello
+    </h1>
+    <form action="/add" method="post">
+        <label>Enter Hospital Name: </label>
+        <input name="inputHospitalName" type="text" >
+        <br/>
+        <label>Hospital Care Type:</label>
+        <input list="typeList" id="inputHospitalCareType" name="inputHospitalCareType" />
+        <datalist id="typeList">
+            <option value="Hospital">
+            <option value="Nursing">
+            <option value="Dispensary">
+        </datalist>
+        <br/>
+        <label>Email:</label>
+        <input type="email" id="inputEmail" name="inputEmail">
+        <br/>
+        <label>Locality:</label>
+        <input type="text" id="inputLocality" name="inputLocality" >
+        </br>
+        <label for="inputTelephone">Telephone:</label>
+        <input type="tel" id="inputTelephone" name="inputTelephone">
+        <br />
+        <label for="inputPincode">Pincode:</label>
+        <input type="pin" id="inputPincode" name="inputPincode">
+        <br>
+        <label for="inputAddress">Address:</label>
+        <input type="text" id="inputAddress" name="inputAddress">
+        <br/>
+        <label for="inputDistrict">District:</label>
+        <input type="text" id="inputDistrict" name="inputDistrict">
+        <br/>
+        <!-- <label for="mylongitude">My Longitude:</label>
+        <input type="text" id="mylongitude" name="mylongitude"> -->
+        <button type="submit" name="submit">Submit</button>
+    </form>
+
+
+    <script>
+        var latitude, longitude;
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                console.log(latitude, longitude);
+                document.getElementById("mylatitude").value = latitude;
+                document.getElementById("mylongitude").value = longitude;
+            });
+        } else {
+            console.log("Geolocation is not available");
+        }
+    </script>
+    <script src="form.js"></script>
+</body>
+
+</html>
